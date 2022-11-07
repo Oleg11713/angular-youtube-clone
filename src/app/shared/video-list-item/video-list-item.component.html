@@ -1,0 +1,34 @@
+<div *ngIf="item" [ngClass]="{
+        'video-item': !isGrid,
+        'video-grid-item': isGrid
+        }">
+    <a routerLink="/video-page/{{ item.id }}" [ngClass]="{
+            'video-item__link': !isGrid,
+            'video-grid-item__link': isGrid
+            }">
+        <img [ngClass]="{
+                'video-item__link-image': !isGrid,
+                'video-grid-item__link-image': isGrid
+            }"
+            src="{{ item.snippet.thumbnails.high.url }}" alt="video image"
+            />
+        <mat-progress-bar mode="determinate" value="40" color="warn" *ngIf="isWatched"></mat-progress-bar>
+    </a>
+    <div [ngClass]="{
+            'video-item__info': !isGrid,
+            'video-grid-item__wrapper__info': isGrid}">
+        <a routerLink="/video-page/{{ item.id }}" [ngClass]="{
+                'video-item__info-header': !isGrid,
+                'video-grid-item__wrapper__info-header': isGrid
+            }">{{ item.snippet.title }}</a>
+        <div *ngIf="!isGrid">
+            <div class="video-item__info-views">{{ item.statistics.viewCount }} views</div>
+            <a routerLink="/channel-page/{{ item.snippet.channelId }}" class="video-item__info__channel-name">{{ item.snippet.channelTitle }}</a>
+        </div>
+        <div *ngIf="isGrid">
+            <a routerLink="/channel-page/{{ item.snippet.channelId }}" class="video-grid-item__wrapper__info-name">{{ item.snippet.channelTitle }}</a>
+            <div class="video-grid-item__wrapper__info-views">{{ item.statistics.viewCount }}</div>
+        </div>
+        <div *ngIf="!isGrid" class="video-item__info-description">{{ item.snippet.description }}</div>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+.current-video__info-section {
+    margin-top: 20px;
+
+    h1,
+    h2 {
+        margin-bottom: 0;
+    }
+
+    .info-section__tools {
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 0;
+
+        .tool {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .tools__views {
+            cursor: default;
+        }
+
+        .tab-icon {
+            margin-right: 8px;
+        }
+    }
+
+    .info-section__channel {
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+        .channel-title-and-subscribe-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+
+            .channel-title {
+                font-size: 16px;
+            }
+
+            a {
+                text-decoration: none;
+                color: black;
+            }
+        }
+
+        .info-section__description {
+            margin-bottom: 20px;
+            max-width: 850px;
+            width: 100%;
+        }
+
+        .info-section__more-info {
+            color: grey;
+            cursor: pointer;
+        }
+    }
+
+    .info-section__comments-count {
+        font-size: 16px;
+        margin-top: 20px;
+    }
+}

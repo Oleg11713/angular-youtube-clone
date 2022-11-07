@@ -1,0 +1,18 @@
+.related-videos-item {
+    max-width: 400px;
+    margin-bottom: 20px;
+    margin-left: 30px;
+
+    .related-video__title {
+        margin-left: 5px;
+    }
+
+    .iframe {
+        border: none;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}

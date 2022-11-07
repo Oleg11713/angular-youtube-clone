@@ -1,0 +1,31 @@
+ <mat-tab-group (keyup.enter)="findVideosByKeyword()" [selectedIndex]="selectedTab.value">
+    <mat-tab label="HOME">
+        <div class="container">
+            <channel-playlists></channel-playlists>
+            <channel-channels></channel-channels>
+        </div>
+    </mat-tab>
+        <mat-tab label="VIDEOS">VIDEOS</mat-tab>
+        <mat-tab label="PLAYLISTS">PLAYLISTS</mat-tab>
+        <mat-tab label="COMMUNITY">COMMUNITY</mat-tab>
+        <mat-tab label="CHANNELS">CHANNELS</mat-tab>
+    <mat-tab label="ABOUT THE CHANNEL">
+        <channel-about></channel-about>
+    </mat-tab>
+     <mat-tab disabled="{{ searchVideo !== '' ? 'false' : 'true' }}">
+         <ng-template mat-tab-label>
+             <div class="channel-search">
+                 <mat-icon (click)="onSearch()" class="channel-search-icon">search</mat-icon>
+                 <mat-form-field class="{{ isSearching ? 'channel-search-input' : 'channel-search-input disable' }}">
+                     <input [(ngModel)]="searchVideo" matInput/>
+                 </mat-form-field>
+             </div>
+         </ng-template>
+         <div *ngIf="videosByKeyword$ | async as videosByKeyword">
+             <div *ngIf="!videosByKeyword.length" class="channel-search__not-found">Nothing was found for your request...</div>
+             <channel-video-search *ngIf="videosByKeyword.length"
+                [foundVideos]="videosByKeyword"
+             ></channel-video-search>
+         </div>
+     </mat-tab>
+</mat-tab-group>

@@ -1,0 +1,71 @@
+.channel-about {
+    display: grid;
+    grid-template-columns: 650px 325px;
+    padding: 16px 0;
+    column-gap: 96px;
+    color: #030303;
+    font-family: sans-serif;
+
+    &__info {
+        &__title {
+            font-size: 16px;
+            margin-top: 24px;
+
+            &.stats {
+                padding-bottom: 12px;
+                border-bottom: 1px solid #c2c2c2;
+            }
+        }
+
+        &__description {
+            font-size: 14px;
+            font-family: sans-serif;
+            margin-top: 24px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #c2c2c2;
+        }
+
+        &__additionally {
+            padding-bottom: 32px;
+            border-bottom: 1px solid #c2c2c2;
+
+            &-item {
+                margin-top: 12px;
+                color: #606060;
+                font-size: 12px;
+            }
+        }
+
+        &__links {
+            padding-bottom: 32px;
+            border-bottom: 1px solid #c2c2c2;
+
+            &__wrapper {
+                display: flex;
+
+                &-link {
+                    width: 260px;
+                    margin-top: 24px;
+                    font-size: 12px;
+                    cursor: pointer;
+                    color: #065FD4;
+                }
+            }
+        }
+    }
+
+    &__stats {
+        &__text {
+            font-size: 14px;
+            padding: 12px 0;
+            border-bottom: 1px solid #c2c2c2;
+        }
+
+        &-icon {
+            margin-top: 15px;
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+        }
+    }
+}

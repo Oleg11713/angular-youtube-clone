@@ -1,0 +1,60 @@
+<section class="search-page">
+    <section class="search-page__view-actions">
+        <mat-form-field
+            *ngIf="showFilter"
+            class="search-page_filter"
+            appearance="fill"
+        >
+            <mat-label>Filtration</mat-label>
+            <mat-select ngModel (ngModelChange)="showVideosByFilter($event)">
+                <mat-option>All</mat-option>
+                <mat-option
+                    *ngFor="let category of categories$ | async as categories"
+                    [value]="category.id"
+                    >{{ category.snippet.title }}</mat-option
+                >
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field
+            *ngIf="!showFilter"
+            class="search-page_filter"
+            appearance="fill"
+        >
+            <mat-label>Sorting</mat-label>
+            <mat-select
+                ngModel
+                (ngModelChange)="showVideosBySortCondition($event)"
+            >
+                <mat-option
+                    *ngFor="let condition of sortConditions"
+                    [value]="condition.value"
+                    >{{ condition.title }}</mat-option
+                >
+            </mat-select>
+        </mat-form-field>
+        <button
+            mat-raised-button
+            class="search-page_view-change"
+            (click)="changeView()"
+        >
+            {{ videoListView ? "List" : "Grid" }}
+        </button>
+    </section>
+
+    <section
+        [ngClass]="{
+            'search-page__video-items_grid': videoListView,
+            'search-page__video-items_list': !videoListView
+        }"
+    >
+        <video-list-item
+            *ngFor="let videoItem of videos$ | async"
+            [isGrid]="videoListView"
+            [item]="videoItem"
+        ></video-list-item>
+    </section>
+
+    <section class="search-page__item item-load" *ngIf="!(videos$ | async)">
+        <mat-spinner style="margin: 0 auto"></mat-spinner>
+    </section>
+</section>

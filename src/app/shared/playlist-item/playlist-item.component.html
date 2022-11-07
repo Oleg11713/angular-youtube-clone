@@ -1,0 +1,13 @@
+<div *ngIf="channelMultiplePlaylistItem" class="playlist-item">
+    <a class="playlist-item__link">
+        <img class="playlist-item__link-image" src="{{ channelMultiplePlaylistItem.snippet.thumbnails.default.url }}" alt="playlist image"/>
+        <span class="playlist-item__link__overlay">
+            <div class="playlist-item__link__overlay-count">{{ channelMultiplePlaylistItem.contentDetails.itemCount }}</div>
+            <mat-icon class="playlist-item__link__overlay-icon">playlist_play</mat-icon>
+        </span>
+    </a>
+    <div class="playlist-item__title">{{ channelMultiplePlaylistItem.snippet.title }}</div>
+    <div class="playlist-item__channel-name">{{ channelMultiplePlaylistItem.snippet.channelTitle }}</div>
+    <div class="playlist-item__view">VIEW ENTIRE PLAYLIST</div>
+</div>
+

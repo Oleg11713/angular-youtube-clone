@@ -1,0 +1,23 @@
+<section *ngIf="channel" class="channel-about">
+    <div class="channel-about__info">
+        <div class="channel-about__info__title">Description</div>
+        <div class="channel-about__info__description">{{ channel.snippet.description }}</div>
+        <div class="channel-about__info__additionally">
+            <div class="channel-about__info__title">Additional</div>
+            <div class="channel-about__info__additionally-item">{{ channel.snippet.country ? 'Country: ' + channel.snippet.country : 'Additional information not found' }}</div>
+        </div>
+        <div class="channel-about__info__links">
+            <div class="channel-about__info__title">Links</div>
+            <div class="channel-about__info__links__wrapper">
+                <a class="channel-about__info__links__wrapper-link">Twitter</a>
+                <a class="channel-about__info__links__wrapper-link">Blogger</a>
+            </div>
+        </div>
+    </div>
+    <div class="channel-about__stats">
+        <div class="channel-about__info__title stats">Statistics</div>
+        <div class="channel-about__stats__text">Registration date: {{ channel.snippet.publishedAt | date }}</div>
+        <div class="channel-about__stats__text">{{ channel.statistics.viewCount }} views</div>
+        <mat-icon class="channel-about__stats-icon">outlined_flag</mat-icon>
+    </div>
+</section>

@@ -1,0 +1,12 @@
+<section class="channels-list">
+    <nav mat-tab-nav-bar class="channels-list__items">
+        <div *ngFor="let channelMultipleChannel of channelMultipleChannels" class="channels-list__items__item">
+            <a routerLink="/channel-page/{{ channelMultipleChannel.id }}" class="channels-list__items__item__link">
+                <img class="channels-list__items__item__link-img" src="{{ channelMultipleChannel.snippet.thumbnails.default.url }}" alt="channel thumbnail"/>
+                <div class="channels-list__items__item__link-title">{{ channelMultipleChannel.snippet.title }}</div>
+                <div class="channels-list__items__item__link-subs">{{ channelMultipleChannel.statistics.subscriberCount }} subscribers</div>
+            </a>
+            <button class="channels-list__items__item-btn" mat-stroked-button>SUBSCRIBE</button>
+        </div>
+    </nav>
+</section>

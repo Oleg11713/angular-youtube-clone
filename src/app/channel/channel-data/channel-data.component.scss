@@ -1,0 +1,27 @@
+.channel__data {
+    display: flex;
+    align-items: center;
+
+    &-icon {
+        border-radius: 100%;
+        margin-right: 10px;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+
+        &-title {
+            font-size: 24px;
+            line-height: 30px;
+            font-family: sans-serif;
+            color: #030303;
+        }
+
+        &-subs {
+            font-size: 14px;
+            font-family: sans-serif;
+            color: #606060;
+        }
+    }
+}

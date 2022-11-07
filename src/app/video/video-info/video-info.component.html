@@ -1,0 +1,84 @@
+<div class="current-video__info-section" *ngIf="currentVideo">
+    <h1 class="info-section__title">{{ currentVideo.snippet.title }}</h1>
+    <div class="info-section__tools">
+        <div class="tools__views tool">
+            {{ currentVideo.statistics.viewCount }} views
+        </div>
+        <div class="tools__likes tool" (click)="addVideoLike(currentVideo.id)">
+            <mat-icon class="tab-icon">
+                {{
+                    checkVideoLike(currentVideo.id)
+                        ? "thumb_up"
+                        : "thumb_up_off_alt"
+                }}
+            </mat-icon>
+            {{
+                checkVideoLike(currentVideo.id)
+                    ? +currentVideo.statistics.likeCount + 1
+                    : currentVideo.statistics.likeCount
+            }}
+        </div>
+        <div
+            class="tools__dislikes tool"
+            (click)="addVideoDislike(currentVideo.id)"
+        >
+            <mat-icon class="tab-icon">
+                {{
+                    checkVideoDislike(currentVideo.id)
+                        ? "thumb_down"
+                        : "thumb_down_off_alt"
+                }}
+            </mat-icon>
+            DISLIKE
+        </div>
+        <div class="tools__share tool">
+            <mat-icon class="tab-icon">share</mat-icon>
+            SHARE
+        </div>
+        <div class="tools__download tool">
+            <mat-icon class="tab-icon">download</mat-icon>
+            DOWNLOAD
+        </div>
+        <div class="tools__create-clip tool">
+            <mat-icon class="tab-icon">content_cut</mat-icon>
+            CREATE CLIP
+        </div>
+        <button
+            mat-icon-button
+            [matMenuTriggerFor]="menu"
+            aria-label="Example icon-button with a menu"
+        >
+            <mat-icon>more_horiz</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>Report</button>
+        </mat-menu>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="info-section__channel">
+        <div class="channel-title-and-subscribe-btn">
+            <a [routerLink]="['/channel-page', currentVideo.snippet.channelId]">
+                <h2 class="channel-title">
+                    {{ currentVideo.snippet.channelTitle }}
+                </h2>
+            </a>
+            <button
+                mat-raised-button
+                color="{{ isSubscribe ? '' : 'warn' }}"
+                (click)="toggleSubscribe()"
+            >
+                {{ isSubscribe ? "UNSUBSCRIBE" : "SUBSCRIBE" }}
+            </button>
+        </div>
+        <div class="info-section__description" *ngIf="!isShownDescription">
+            {{ currentVideo.snippet.description }}
+        </div>
+        <p class="info-section__more-info" (click)="toggleDescription()">
+            {{ isShownDescription ? "Show description" : "Hide" }}
+        </p>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="info-section__comments-count">
+        {{ currentVideo.statistics.commentCount }} comments
+    </div>
+</div>

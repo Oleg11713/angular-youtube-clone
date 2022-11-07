@@ -1,0 +1,14 @@
+<section class="video-page">
+    <div class="current-video" *ngIf="currentVideo">
+        <app-video-player [id]="currentVideo.id"></app-video-player>
+        <app-video-info [currentVideo]="currentVideo"></app-video-info>
+        <app-comments [comments]="comments"></app-comments>
+    </div>
+    <section class="current-video item-load" *ngIf="!currentVideo">
+        <mat-spinner style="margin: 50px auto"></mat-spinner>
+    </section>
+    <app-related-videos [relatedVideos]="relatedVideos"></app-related-videos>
+    <section class="item-load" *ngIf="!relatedVideos">
+        <mat-spinner style="margin: 50px auto"></mat-spinner>
+    </section>
+</section>

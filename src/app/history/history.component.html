@@ -1,0 +1,42 @@
+<section class="history-page">
+    <div class="history-page__info-section">
+        <h1 class="info-section__title">Watch history</h1>
+        <div
+            class="info-section__videos-collection"
+            *ngIf="watchedVideos.length"
+        >
+            <div
+                class="videos-collection__video-item"
+                *ngFor="let video of watchedVideos"
+            >
+                <video-list-item
+                    [routerLink]="['/video-page', video.id]"
+                    [isGrid]="false"
+                    [item]="video"
+                ></video-list-item>
+                <p class="date">Watched at {{ localStorageWatchedVideos[video.id] }}</p>
+            </div>
+        </div>
+        <h2 class="info-section__no-video-msg" *ngIf="!watchedVideos.length">
+            No watched videos
+        </h2>
+    </div>
+    <div class="history-page__tools-section">
+        <div>
+            <div
+                class="tools-section__clear-watch-history history-tool"
+                (click)="clearWatchHistory()"
+            >
+                <span class="material-icons">delete_forever</span>
+                <p>Clear watch history</p>
+            </div>
+            <div
+                class="tools-section__clear-search-history history-tool"
+                (click)="clearSearchHistory()"
+            >
+                <span class="material-icons">delete_forever</span>
+                <p>Clear search history</p>
+            </div>
+        </div>
+    </div>
+</section>

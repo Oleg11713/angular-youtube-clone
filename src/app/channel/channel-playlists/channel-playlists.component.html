@@ -1,0 +1,27 @@
+<section class="channel-playlists">
+    <li *ngFor="let playlistWithVideos of playlistItemsWithPlaylist" class="channel-playlists__item">
+        <div class="channel-playlists__item__header">
+            <a class="channel-playlists__item__header-title">{{ playlistWithVideos.playlist.snippet.title }}</a>
+            <a class="channel-playlists__item__header__btn"><mat-icon class="channel-playlists__item__header__btn-play">play_arrow</mat-icon> <div class="channel-playlists__item__header__play-text">PLAY ALL</div></a>
+        </div>
+        <div class="channel-playlists__item__description">{{ playlistWithVideos.playlist.snippet.description }}</div>
+        <div class="channel-playlists__item__videos">
+            <a routerLink="/video-page/{{ video.snippet.resourceId.videoId }}" *ngFor="let video of playlistWithVideos.playlistItems" class="channel-playlists__item__videos__video">
+                <img src="{{ video.snippet.thumbnails.high.url }}" alt="thumbnail" class="channel-playlists__item__videos__video-img"/>
+                <div class="channel-playlists__item__videos__video-title">{{ video.snippet.title }}</div>
+                <div class="channel-playlists__item__videos__video-channel">{{ video.snippet.channelTitle }}</div>
+                <div class="channel-playlists__item__videos__video-time">{{ video.snippet.publishedAt | date }}</div>
+            </a>
+        </div>
+    </li>
+    <li *ngFor="let channelMultiplePlaylist of channelMultiplePlaylists" class="channel-playlists__item sec">
+        <div class="channel-playlists__item__header-title multiple">{{ channelMultiplePlaylist.title }}</div>
+        <nav mat-tab-nav-bar class="channel-playlists__item__videos">
+            <a *ngFor="let channelMultiplePlaylistItem of channelMultiplePlaylist.items">
+                <playlist-item
+                    [channelMultiplePlaylistItem]="channelMultiplePlaylistItem"
+                ></playlist-item>
+            </a>
+        </nav>
+    </li>
+</section>

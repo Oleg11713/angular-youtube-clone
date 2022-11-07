@@ -1,0 +1,54 @@
+.channels-list {
+    &__items {
+        display: flex;
+        overflow: hidden;
+        padding: 24px 0;
+        border-top: 1px solid black;
+
+        &__item {
+            opacity: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            margin: 0 auto;
+            min-width: 210px;
+            padding: 0 8px;
+            cursor: pointer;
+
+            &__link {
+                text-decoration: none;
+                color: #030303;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                &-img {
+                    border-radius: 100%;
+                    width: 103px;
+                    height: 103px;
+                }
+
+                &-title {
+                    text-align: center;
+                    margin: 4px 0;
+                    color: #030303;
+                    font-weight: 700;
+                    font-family: sans-serif;
+                }
+
+                &-subs {
+                    text-align: center;
+                    font-size: 12px;
+                    color: #606060;
+                    font-family: sans-serif;
+                }
+            }
+
+            &-btn {
+                margin-top: 16px;
+            }
+        }
+    }
+}

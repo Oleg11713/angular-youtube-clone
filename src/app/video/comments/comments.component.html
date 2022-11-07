@@ -1,0 +1,82 @@
+<div class="comments-section">
+    <app-input-comment
+        [myText]="myComment"
+        [operation]="operationComment"
+    ></app-input-comment>
+    <div
+        class="comments-section__comments-collection"
+        *ngFor="let comment of comments"
+    >
+        <div class="comments-collection__item-comment">
+            <div class="comment-info">
+                <img
+                    class="author-img"
+                    [src]="comment.snippet.authorProfileImageUrl"
+                />
+                <div>
+                    <div class="upper-comment">
+                        <p class="author-display-name">
+                            {{ comment.snippet.authorDisplayName }}
+                        </p>
+                        <p class="published-at">
+                            {{ comment.snippet.publishedAt | date: "medium"}}
+                        </p>
+                    </div>
+                    <p class="text-original">
+                        {{ comment.snippet.textOriginal }}
+                    </p>
+                    <div class="under-comment">
+                        <div class="comment-likes">
+                            <mat-icon
+                                class="comment-icon"
+                                (click)="addCommentLike(comment.id)"
+                                >{{
+                                    checkCommentLike(comment.id)
+                                        ? "thumb_up"
+                                        : "thumb_up_off_alt"
+                                }}
+                            </mat-icon>
+                            {{
+                                checkCommentLike(comment.id)
+                                    ? +comment.snippet.likeCount + 1
+                                    : comment.snippet.likeCount
+                            }}
+                            <mat-icon
+                                class="comment-icon"
+                                (click)="addCommentDislike(comment.id)"
+                                >{{
+                                    checkCommentDislike(comment.id)
+                                        ? "thumb_down"
+                                        : "thumb_down_off_alt"
+                                }}
+                            </mat-icon>
+                        </div>
+                        <button
+                            mat-button
+                            class="button-reply"
+                            (click)="showReplyInput()"
+                        >
+                            REPLY
+                        </button>
+                    </div>
+                    <app-input-comment
+                        [myText]="myAnswer"
+                        [operation]="operationAnswer"
+                    ></app-input-comment>
+                </div>
+            </div>
+            <div class="comment-menu">
+                <button
+                    mat-icon-button
+                    [matMenuTriggerFor]="menu"
+                    aria-label="Example icon-button with a menu"
+                >
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item>Report</button>
+                </mat-menu>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+.channel-search {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    color: black;
+
+    &-icon {
+        transform: translateY(-3px);
+        width: 22px;
+        height: 22px;
+        cursor: pointer;
+        margin-right: 5px;
+    }
+
+    &-input {
+        border: none;
+        height: 100%;
+
+        &.disable {
+            visibility: hidden;
+        }
+    }
+
+    &__not-found {
+        text-align: center;
+        font-size: 24px;
+        color: #030303;
+        padding: 50px 0;
+    }
+}

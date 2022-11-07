@@ -1,0 +1,14 @@
+<section *ngIf="channel" class="channel">
+    <img src="{{ channel.brandingSettings.image.bannerExternalUrl + EXTENSION_FOR_CHANNEL_BANNER }}" class="channel__banner" alt="banner"/>
+    <div class="channel__container">
+        <div class="channel__header">
+            <channel-data
+                [thumbnail]="channel.snippet.thumbnails.default.url"
+                [title]="channel.snippet.title"
+                [subscribersCount]="channel.statistics.subscriberCount"
+            ></channel-data>
+            <button mat-raised-button color="warn">SUBSCRIBE</button>
+        </div>
+        <channel-tabs></channel-tabs>
+    </div>
+</section>

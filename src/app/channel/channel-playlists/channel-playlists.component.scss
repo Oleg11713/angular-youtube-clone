@@ -1,0 +1,102 @@
+.channel-playlists {
+    padding-top: 24px;
+
+    &__item {
+        list-style-type: none;
+        border-top: 1px solid black;
+
+        &__header {
+            margin-top: 24px;
+            display: flex;
+            align-items: center;
+
+            &-title {
+                margin-right: 30px;
+                font-size: 16px;
+                font-family: sans-serif;
+                font-weight: 700;
+                color: #030303;
+                cursor: pointer;
+
+                &.multiple {
+                    margin-top: 30px;
+                }
+            }
+
+            &__btn {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+
+                &-play {
+                    position: relative;
+                    top: -1px;
+                }
+
+                &-text {
+                    color: #606060;
+                    font-size: 14px;
+                    font-family: sans-serif;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        &__description {
+            margin-top: 8px;
+            font-size: 14px;
+            font-family: sans-serif;
+            font-weight: 400;
+            color: #606060;
+        }
+
+        &__videos {
+            display: flex;
+            padding-bottom: 24px;
+            overflow: hidden;
+            margin-top: 24px;
+
+            &__video {
+                height: 250px;
+                width: 210px;
+                cursor: pointer;
+                padding: 0 8px;
+                text-decoration: none;
+
+                &-img {
+                    height: 120px;
+                    overflow: hidden;
+                    display: block;
+                    margin: 0 auto;
+                }
+
+                &-title {
+                    font-size: 14px;
+                    font-weight: 700;
+                    font-family: sans-serif;
+                    color: #030303;
+                    margin: 8px 0;
+                }
+
+                &-channel {
+                    font-size: 12px;
+                    color: #606060;
+                    font-family: sans-serif;
+                }
+
+                &-views {
+                    font-size: 12px;
+                    color: #606060;
+                    font-family: sans-serif;
+                }
+
+                &-time {
+                    font-size: 12px;
+                    color: #606060;
+                    font-family: sans-serif;
+                }
+            }
+        }
+
+    }
+}
